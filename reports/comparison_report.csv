@@ -1,0 +1,3 @@
+strategy,run,passed,return_code,duration_seconds,tests_total,tests_passed,tests_failed,defects_detected,selected_tests_count,heal_attempts,coverage_percent,report_path
+agentic,1,False,1,8.537,158,114,44,44,2,1,39.58,reports/agentic_run_1.json
+traditional,1,False,1,8.862,150,110,40,40,1,0,37.5,

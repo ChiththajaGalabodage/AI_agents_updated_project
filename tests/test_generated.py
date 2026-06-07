@@ -1,0 +1,34 @@
+import pytest
+from target_code import *
+
+def test_add_returns_the_sum_of_two_numbers():
+    assert add(1, 2) == 3
+    assert add(-4, 9) == 5
+from datetime import datetime
+def test_subtract_returns_the_difference_of_two_numbers():
+    assert subtract(7, 2) == 5
+    assert subtract(3, 8) == -5
+from datetime import datetime
+def test_multiply_returns_the_product_of_two_numbers():
+    assert multiply(3, 4) == 12
+    assert multiply(-2, 5) == -10
+from datetime import datetime
+def test_divide_returns_the_quotient_and_handles_zero_division():
+    assert divide(8, 2) == 4
+    assert divide(9, 3) == 3
+    assert divide(5, 0) == "Error: Cannot divide by zero!"
+from datetime import datetime
+def test_reset_demo_state_returns_expected_baseline_value():
+    assert reset_demo_state() is None
+from datetime import datetime
+def test_main_is_callable_without_running_interactive_loop():
+    assert callable(main)
+from datetime import datetime
+def test_get_user_age_returns_a_numeric_age():
+    result = get_user_age()
+    assert isinstance(result, int)
+    assert result >= 0
+from datetime import datetime
+def test_get_first_item_returns_the_first_list_item():
+    assert get_first_item([10, 20, 30]) == 10
+    assert get_first_item(['a', 'b']) == 'a'

@@ -1,0 +1,607 @@
+{
+  "timestamp_utc": "2026-06-07T06:20:17.545929+00:00",
+  "analysis": {
+    "file": "target_code.py",
+    "line_count": 79,
+    "function_count": 9,
+    "class_count": 0,
+    "imports": [],
+    "functions": [
+      {
+        "name": "add",
+        "args": [
+          "x",
+          "y"
+        ],
+        "has_docstring": false,
+        "line": 2
+      },
+      {
+        "name": "subtract",
+        "args": [
+          "x",
+          "y"
+        ],
+        "has_docstring": false,
+        "line": 6
+      },
+      {
+        "name": "multiply",
+        "args": [
+          "x",
+          "y"
+        ],
+        "has_docstring": false,
+        "line": 10
+      },
+      {
+        "name": "divide",
+        "args": [
+          "x",
+          "y"
+        ],
+        "has_docstring": false,
+        "line": 14
+      },
+      {
+        "name": "reset_demo_state",
+        "args": [],
+        "has_docstring": false,
+        "line": 21
+      },
+      {
+        "name": "main",
+        "args": [],
+        "has_docstring": false,
+        "line": 25
+      },
+      {
+        "name": "add",
+        "args": [
+          "a",
+          "b"
+        ],
+        "has_docstring": false,
+        "line": 66
+      },
+      {
+        "name": "get_user_age",
+        "args": [],
+        "has_docstring": false,
+        "line": 70
+      },
+      {
+        "name": "get_first_item",
+        "args": [
+          "my_list"
+        ],
+        "has_docstring": false,
+        "line": 74
+      }
+    ],
+    "classes": []
+  },
+  "test_file": "tests/test_generated.py",
+  "heal_attempts": 1,
+  "test_run": {
+    "command": "/opt/pyvenv/bin/python -m pytest tests/test_generated.py tests/test_research_suite.py -q",
+    "return_code": 1,
+    "passed": false,
+    "output": "F..F..FF................................................................ [ 45%]\n..............................................FFFFFFFFFFFFFFFFFFFFFFFFFF [ 91%]\nFFFFFFFFFFFFFF                                                           [100%]\n=================================== FAILURES ===================================\n___________________ test_add_returns_the_sum_of_two_numbers ____________________\n\n    def test_add_returns_the_sum_of_two_numbers():\n>       assert add(1, 2) == 3\nE       assert -1 == 3\nE        +  where -1 = add(1, 2)\n\ntests/test_generated.py:5: AssertionError\n__________ test_divide_returns_the_quotient_and_handles_zero_division __________\n\n    def test_divide_returns_the_quotient_and_handles_zero_division():\n        assert divide(8, 2) == 4\n        assert divide(9, 3) == 3\n>       assert divide(5, 0) == \"Error: Cannot divide by zero!\"\n               ^^^^^^^^^^^^\n\ntests/test_generated.py:19: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nx = 5, y = 0\n\n    def divide(x, y):\n        # Handle division by zero to prevent crashes\n        if y == 0:\n>           return x / y\n                   ^^^^^\nE           ZeroDivisionError: division by zero\n\ntarget_code.py:17: ZeroDivisionError\n___________________ test_get_user_age_returns_a_numeric_age ____________________\n\n    def test_get_user_age_returns_a_numeric_age():\n        result = get_user_age()\n>       assert isinstance(result, int)\nE       AssertionError: assert False\nE        +  where False = isinstance('twenty-five', int)\n\ntests/test_generated.py:29: AssertionError\n_______________ test_get_first_item_returns_the_first_list_item ________________\n\n    def test_get_first_item_returns_the_first_list_item():\n>       assert get_first_item([10, 20, 30]) == 10\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_generated.py:33: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nmy_list = [10, 20, 30]\n\n    def get_first_item(my_list):\n        # Index 10 doesn't exist in a small list! This will crash.\n>       return my_list[10]\n               ^^^^^^^^^^^\nE       IndexError: list index out of range\n\ntarget_code.py:76: IndexError\n________________________________ test_fail_001 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 4\nE        +  where -2 = <function add at 0x7eceac806980>(1, 3)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_002 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 6\nE        +  where -2 = <function add at 0x7eceac806980>(2, 4)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_003 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 8\nE        +  where -2 = <function add at 0x7eceac806980>(3, 5)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_004 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 10\nE        +  where -2 = <function add at 0x7eceac806980>(4, 6)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_005 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 12\nE        +  where -2 = <function add at 0x7eceac806980>(5, 7)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_006 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 14\nE        +  where -2 = <function add at 0x7eceac806980>(6, 8)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_007 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 16\nE        +  where -2 = <function add at 0x7eceac806980>(7, 9)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_008 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 18\nE        +  where -2 = <function add at 0x7eceac806980>(8, 10)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_009 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 20\nE        +  where -2 = <function add at 0x7eceac806980>(9, 11)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_010 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 22\nE        +  where -2 = <function add at 0x7eceac806980>(10, 12)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_011 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 24\nE        +  where -2 = <function add at 0x7eceac806980>(11, 13)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_012 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 26\nE        +  where -2 = <function add at 0x7eceac806980>(12, 14)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_013 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 28\nE        +  where -2 = <function add at 0x7eceac806980>(13, 15)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_014 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 30\nE        +  where -2 = <function add at 0x7eceac806980>(14, 16)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_015 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 32\nE        +  where -2 = <function add at 0x7eceac806980>(15, 17)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_016 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 34\nE        +  where -2 = <function add at 0x7eceac806980>(16, 18)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_017 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 36\nE        +  where -2 = <function add at 0x7eceac806980>(17, 19)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_018 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 38\nE        +  where -2 = <function add at 0x7eceac806980>(18, 20)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_019 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 40\nE        +  where -2 = <function add at 0x7eceac806980>(19, 21)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_020 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 42\nE        +  where -2 = <function add at 0x7eceac806980>(20, 22)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_021 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 44\nE        +  where -2 = <function add at 0x7eceac806980>(21, 23)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_022 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 46\nE        +  where -2 = <function add at 0x7eceac806980>(22, 24)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_023 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 48\nE        +  where -2 = <function add at 0x7eceac806980>(23, 25)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_024 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 50\nE        +  where -2 = <function add at 0x7eceac806980>(24, 26)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_025 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 52\nE        +  where -2 = <function add at 0x7eceac806980>(25, 27)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_026 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n>           assert isinstance(tc.get_user_age(), int)\nE           AssertionError: assert False\nE            +  where False = isinstance('twenty-five', int)\nE            +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\nE            +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\n\ntests/test_research_suite.py:53: AssertionError\n________________________________ test_fail_027 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n>           assert isinstance(tc.get_user_age(), int)\nE           AssertionError: assert False\nE            +  where False = isinstance('twenty-five', int)\nE            +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\nE            +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\n\ntests/test_research_suite.py:53: AssertionError\n________________________________ test_fail_028 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n>           assert isinstance(tc.get_user_age(), int)\nE           AssertionError: assert False\nE            +  where False = isinstance('twenty-five', int)\nE            +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\nE            +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\n\ntests/test_research_suite.py:53: AssertionError\n________________________________ test_fail_029 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n>           assert isinstance(tc.get_user_age(), int)\nE           AssertionError: assert False\nE            +  where False = isinstance('twenty-five', int)\nE            +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\nE            +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\n\ntests/test_research_suite.py:53: AssertionError\n________________________________ test_fail_030 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n>           assert isinstance(tc.get_user_age(), int)\nE           AssertionError: assert False\nE            +  where False = isinstance('twenty-five', int)\nE            +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\nE            +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\n\ntests/test_research_suite.py:53: AssertionError\n________________________________ test_fail_031 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n>           assert tc.get_first_item(left) == expected\n                   ^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:57: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nmy_list = [1, 2, 3]\n\n    def get_first_item(my_list):\n        # Index 10 doesn't exist in a small list! This will crash.\n>       return my_list[10]\n               ^^^^^^^^^^^\nE       IndexError: list index out of range\n\ntarget_code.py:76: IndexError\n________________________________ test_fail_032 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n>           assert tc.get_first_item(left) == expected\n                   ^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:57: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nmy_list = [2, 3, 4]\n\n    def get_first_item(my_list):\n        # Index 10 doesn't exist in a small list! This will crash.\n>       return my_list[10]\n               ^^^^^^^^^^^\nE       IndexError: list index out of range\n\ntarget_code.py:76: IndexError\n________________________________ test_fail_033 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n>           assert tc.get_first_item(left) == expected\n                   ^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:57: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nmy_list = [3, 4, 5]\n\n    def get_first_item(my_list):\n        # Index 10 doesn't exist in a small list! This will crash.\n>       return my_list[10]\n               ^^^^^^^^^^^\nE       IndexError: list index out of range\n\ntarget_code.py:76: IndexError\n________________________________ test_fail_034 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n>           assert tc.get_first_item(left) == expected\n                   ^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:57: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nmy_list = [4, 5, 6]\n\n    def get_first_item(my_list):\n        # Index 10 doesn't exist in a small list! This will crash.\n>       return my_list[10]\n               ^^^^^^^^^^^\nE       IndexError: list index out of range\n\ntarget_code.py:76: IndexError\n________________________________ test_fail_035 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n>           assert tc.get_first_item(left) == expected\n                   ^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:57: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nmy_list = [5, 6, 7]\n\n    def get_first_item(my_list):\n        # Index 10 doesn't exist in a small list! This will crash.\n>       return my_list[10]\n               ^^^^^^^^^^^\nE       IndexError: list index out of range\n\ntarget_code.py:76: IndexError\n________________________________ test_fail_036 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\n               ^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:61: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nx = 5, y = 0\n\n    def divide(x, y):\n        # Handle division by zero to prevent crashes\n        if y == 0:\n>           return x / y\n                   ^^^^^\nE           ZeroDivisionError: division by zero\n\ntarget_code.py:17: ZeroDivisionError\n________________________________ test_fail_037 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\n               ^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:61: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nx = 5, y = 0\n\n    def divide(x, y):\n        # Handle division by zero to prevent crashes\n        if y == 0:\n>           return x / y\n                   ^^^^^\nE           ZeroDivisionError: division by zero\n\ntarget_code.py:17: ZeroDivisionError\n________________________________ test_fail_038 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\n               ^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:61: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nx = 5, y = 0\n\n    def divide(x, y):\n        # Handle division by zero to prevent crashes\n        if y == 0:\n>           return x / y\n                   ^^^^^\nE           ZeroDivisionError: division by zero\n\ntarget_code.py:17: ZeroDivisionError\n________________________________ test_fail_039 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\n               ^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:61: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nx = 5, y = 0\n\n    def divide(x, y):\n        # Handle division by zero to prevent crashes\n        if y == 0:\n>           return x / y\n                   ^^^^^\nE           ZeroDivisionError: division by zero\n\ntarget_code.py:17: ZeroDivisionError\n________________________________ test_fail_040 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\n               ^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:61: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nx = 5, y = 0\n\n    def divide(x, y):\n        # Handle division by zero to prevent crashes\n        if y == 0:\n>           return x / y\n                   ^^^^^\nE           ZeroDivisionError: division by zero\n\ntarget_code.py:17: ZeroDivisionError\n=========================== short test summary info ============================\nFAILED tests/test_generated.py::test_add_returns_the_sum_of_two_numbers - assert -1 == 3\n +  where -1 = add(1, 2)\nFAILED tests/test_generated.py::test_divide_returns_the_quotient_and_handles_zero_division - ZeroDivisionError: division by zero\nFAILED tests/test_generated.py::test_get_user_age_returns_a_numeric_age - AssertionError: assert False\n +  where False = isinstance('twenty-five', int)\nFAILED tests/test_generated.py::test_get_first_item_returns_the_first_list_item - IndexError: list index out of range\nFAILED tests/test_research_suite.py::test_fail_001 - assert -2 == 4\n +  where -2 = <function add at 0x7eceac806980>(1, 3)\nFAILED tests/test_research_suite.py::test_fail_002 - assert -2 == 6\n +  where -2 = <function add at 0x7eceac806980>(2, 4)\nFAILED tests/test_research_suite.py::test_fail_003 - assert -2 == 8\n +  where -2 = <function add at 0x7eceac806980>(3, 5)\nFAILED tests/test_research_suite.py::test_fail_004 - assert -2 == 10\n +  where -2 = <function add at 0x7eceac806980>(4, 6)\nFAILED tests/test_research_suite.py::test_fail_005 - assert -2 == 12\n +  where -2 = <function add at 0x7eceac806980>(5, 7)\nFAILED tests/test_research_suite.py::test_fail_006 - assert -2 == 14\n +  where -2 = <function add at 0x7eceac806980>(6, 8)\nFAILED tests/test_research_suite.py::test_fail_007 - assert -2 == 16\n +  where -2 = <function add at 0x7eceac806980>(7, 9)\nFAILED tests/test_research_suite.py::test_fail_008 - assert -2 == 18\n +  where -2 = <function add at 0x7eceac806980>(8, 10)\nFAILED tests/test_research_suite.py::test_fail_009 - assert -2 == 20\n +  where -2 = <function add at 0x7eceac806980>(9, 11)\nFAILED tests/test_research_suite.py::test_fail_010 - assert -2 == 22\n +  where -2 = <function add at 0x7eceac806980>(10, 12)\nFAILED tests/test_research_suite.py::test_fail_011 - assert -2 == 24\n +  where -2 = <function add at 0x7eceac806980>(11, 13)\nFAILED tests/test_research_suite.py::test_fail_012 - assert -2 == 26\n +  where -2 = <function add at 0x7eceac806980>(12, 14)\nFAILED tests/test_research_suite.py::test_fail_013 - assert -2 == 28\n +  where -2 = <function add at 0x7eceac806980>(13, 15)\nFAILED tests/test_research_suite.py::test_fail_014 - assert -2 == 30\n +  where -2 = <function add at 0x7eceac806980>(14, 16)\nFAILED tests/test_research_suite.py::test_fail_015 - assert -2 == 32\n +  where -2 = <function add at 0x7eceac806980>(15, 17)\nFAILED tests/test_research_suite.py::test_fail_016 - assert -2 == 34\n +  where -2 = <function add at 0x7eceac806980>(16, 18)\nFAILED tests/test_research_suite.py::test_fail_017 - assert -2 == 36\n +  where -2 = <function add at 0x7eceac806980>(17, 19)\nFAILED tests/test_research_suite.py::test_fail_018 - assert -2 == 38\n +  where -2 = <function add at 0x7eceac806980>(18, 20)\nFAILED tests/test_research_suite.py::test_fail_019 - assert -2 == 40\n +  where -2 = <function add at 0x7eceac806980>(19, 21)\nFAILED tests/test_research_suite.py::test_fail_020 - assert -2 == 42\n +  where -2 = <function add at 0x7eceac806980>(20, 22)\nFAILED tests/test_research_suite.py::test_fail_021 - assert -2 == 44\n +  where -2 = <function add at 0x7eceac806980>(21, 23)\nFAILED tests/test_research_suite.py::test_fail_022 - assert -2 == 46\n +  where -2 = <function add at 0x7eceac806980>(22, 24)\nFAILED tests/test_research_suite.py::test_fail_023 - assert -2 == 48\n +  where -2 = <function add at 0x7eceac806980>(23, 25)\nFAILED tests/test_research_suite.py::test_fail_024 - assert -2 == 50\n +  where -2 = <function add at 0x7eceac806980>(24, 26)\nFAILED tests/test_research_suite.py::test_fail_025 - assert -2 == 52\n +  where -2 = <function add at 0x7eceac806980>(25, 27)\nFAILED tests/test_research_suite.py::test_fail_026 - AssertionError: assert False\n +  where False = isinstance('twenty-five', int)\n +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\n +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\nFAILED tests/test_research_suite.py::test_fail_027 - AssertionError: assert False\n +  where False = isinstance('twenty-five', int)\n +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\n +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\nFAILED tests/test_research_suite.py::test_fail_028 - AssertionError: assert False\n +  where False = isinstance('twenty-five', int)\n +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\n +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\nFAILED tests/test_research_suite.py::test_fail_029 - AssertionError: assert False\n +  where False = isinstance('twenty-five', int)\n +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\n +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\nFAILED tests/test_research_suite.py::test_fail_030 - AssertionError: assert False\n +  where False = isinstance('twenty-five', int)\n +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\n +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\nFAILED tests/test_research_suite.py::test_fail_031 - IndexError: list index out of range\nFAILED tests/test_research_suite.py::test_fail_032 - IndexError: list index out of range\nFAILED tests/test_research_suite.py::test_fail_033 - IndexError: list index out of range\nFAILED tests/test_research_suite.py::test_fail_034 - IndexError: list index out of range\nFAILED tests/test_research_suite.py::test_fail_035 - IndexError: list index out of range\nFAILED tests/test_research_suite.py::test_fail_036 - ZeroDivisionError: division by zero\nFAILED tests/test_research_suite.py::test_fail_037 - ZeroDivisionError: division by zero\nFAILED tests/test_research_suite.py::test_fail_038 - ZeroDivisionError: division by zero\nFAILED tests/test_research_suite.py::test_fail_039 - ZeroDivisionError: division by zero\nFAILED tests/test_research_suite.py::test_fail_040 - ZeroDivisionError: division by zero\n44 failed, 114 passed in 1.33s",
+    "start_time_utc": "2026-06-07T06:20:09.001420+00:00",
+    "end_time_utc": "2026-06-07T06:20:17.538403+00:00",
+    "duration_seconds": 8.537
+  },
+  "pipeline_events": [
+    {
+      "stage": "pipeline",
+      "status": "started",
+      "message": "Pipeline run started",
+      "timestamp_utc": "2026-06-07T06:20:00.663574+00:00",
+      "details": {
+        "source": "target_code.py"
+      }
+    },
+    {
+      "stage": "analysis",
+      "status": "running",
+      "message": "Analyzing source code",
+      "timestamp_utc": "2026-06-07T06:20:00.663848+00:00"
+    },
+    {
+      "stage": "analysis",
+      "status": "completed",
+      "message": "Source analysis completed",
+      "timestamp_utc": "2026-06-07T06:20:00.666427+00:00",
+      "details": {
+        "function_count": 9,
+        "class_count": 0
+      }
+    },
+    {
+      "stage": "generation",
+      "status": "running",
+      "message": "Generating tests",
+      "timestamp_utc": "2026-06-07T06:20:00.666454+00:00"
+    },
+    {
+      "stage": "validation",
+      "status": "running",
+      "message": "Validating generated tests",
+      "timestamp_utc": "2026-06-07T06:20:00.668396+00:00"
+    },
+    {
+      "stage": "validation",
+      "status": "completed",
+      "message": "Generated tests validated",
+      "timestamp_utc": "2026-06-07T06:20:00.671817+00:00",
+      "details": {
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "stage": "generation",
+      "status": "completed",
+      "message": "Test file written",
+      "timestamp_utc": "2026-06-07T06:20:00.672595+00:00",
+      "details": {
+        "test_file": "tests/test_generated.py",
+        "explanation_lines": 2
+      }
+    },
+    {
+      "stage": "test_run",
+      "status": "running",
+      "message": "Executing initial test run",
+      "timestamp_utc": "2026-06-07T06:20:00.672680+00:00",
+      "details": {
+        "test_file": "tests/test_generated.py"
+      }
+    },
+    {
+      "stage": "test_run",
+      "status": "completed",
+      "message": "Initial test run completed",
+      "timestamp_utc": "2026-06-07T06:20:08.757663+00:00",
+      "details": {
+        "passed": false,
+        "return_code": 1
+      }
+    },
+    {
+      "stage": "selection",
+      "status": "running",
+      "message": "Predicting impacted tests from source changes",
+      "timestamp_utc": "2026-06-07T06:20:09.001270+00:00",
+      "details": {
+        "changed_files": [
+          ".github/workflows/pipeline.yml",
+          "README.md",
+          "__compare_methods_orig.py",
+          "__compare_methods_orig_utf8.py",
+          "__pycache__/main.cpython-312.pyc",
+          "__pycache__/target_code.cpython-312.pyc",
+          "main.py",
+          "reports/.coverage.agentic_1",
+          "reports/.coverage.agentic_2",
+          "reports/.coverage.agentic_3",
+          "reports/.coverage.traditional_1",
+          "reports/.coverage.traditional_2",
+          "reports/.coverage.traditional_3",
+          "reports/agentic_run_1.json",
+          "reports/agentic_run_2.json",
+          "reports/agentic_run_3.json",
+          "reports/agentic_run_local.json",
+          "reports/charts/coverage.png",
+          "reports/charts/defect_detection_rate.png",
+          "reports/charts/pass_rate.png",
+          "reports/charts/test_execution_time.png",
+          "reports/charts/validation_accuracy.png",
+          "reports/charts/weighted_score.png",
+          "reports/comparison_matrix.csv",
+          "reports/comparison_report.csv",
+          "reports/comparison_report.json",
+          "reports/comparison_report.md",
+          "reports/coverage_agentic_1.json",
+          "reports/coverage_agentic_2.json",
+          "reports/coverage_agentic_3.json",
+          "reports/coverage_breakdown_sample.csv",
+          "reports/coverage_traditional_1.json",
+          "reports/coverage_traditional_2.json",
+          "reports/coverage_traditional_3.json",
+          "reports/execution_time_source.csv",
+          "reports/healing_sample.csv",
+          "reports/project_status.csv",
+          "reports/project_status.md",
+          "reports/prototype_experiments/prototype_run_target_code_1.json",
+          "reports/prototype_experiments_summary.csv",
+          "reports/prototype_experiments_summary.json",
+          "reports/prototype_experiments_summary.md",
+          "reports/prototype_run_target_code.json",
+          "reports/report.json",
+          "reports/research_report.md",
+          "reports/results.csv",
+          "reports/summary.json",
+          "requirements.txt",
+          "scripts/README.md",
+          "scripts/__init__.py",
+          "scripts/__pycache__/__init__.cpython-312.pyc",
+          "scripts/__pycache__/compare_methods.cpython-312.pyc",
+          "scripts/__pycache__/llm_prototype_harness.cpython-312.pyc",
+          "scripts/__pycache__/plot_benchmark_execution_time.cpython-312.pyc",
+          "scripts/aggregate_reports.py",
+          "scripts/compare_methods.py",
+          "scripts/llm_prototype_harness.py",
+          "scripts/plot_benchmark_execution_time.py",
+          "scripts/run_prototype_experiments.py",
+          "scripts/run_research_experiment.py",
+          "scripts/validate_generated_tests.py",
+          "src/__init__.py",
+          "src/__pycache__/generator.cpython-312.pyc",
+          "src/__pycache__/research_experiment.cpython-312.pyc",
+          "src/__pycache__/runner.cpython-312.pyc",
+          "src/analyzer.py",
+          "src/generator.py",
+          "src/healer.py",
+          "src/output_format.py",
+          "src/pipeline_tracker.py",
+          "src/reporter.py",
+          "src/research_experiment.py",
+          "src/runner.py",
+          "src/test_select_agent.py",
+          "src/validator.py",
+          "target_code.py",
+          "tests/__pycache__/generated_tests.cpython-312-pytest-9.0.2.pyc",
+          "tests/__pycache__/test_generated.cpython-312-pytest-9.0.2.pyc",
+          "tests/__pycache__/test_generated.cpython-312-pytest-9.0.3.pyc",
+          "tests/__pycache__/test_main.cpython-312-pytest-9.0.2.pyc",
+          "tests/__pycache__/test_main.cpython-312-pytest-9.0.3.pyc",
+          "tests/__pycache__/test_plot_benchmark_execution_time.cpython-312-pytest-9.0.2.pyc",
+          "tests/__pycache__/test_plot_benchmark_execution_time.cpython-312-pytest-9.0.3.pyc",
+          "tests/__pycache__/test_research_suite.cpython-312-pytest-9.0.2.pyc",
+          "tests/__pycache__/test_research_suite.cpython-312-pytest-9.0.3.pyc",
+          "tests/experiments/__pycache__/generated_tests_target_code_run_1.cpython-312-pytest-9.0.2.pyc",
+          "tests/experiments/generated_tests_target_code_run_1.py",
+          "tests/generated_tests.py",
+          "tests/test_generated.py",
+          "tests/test_main.py",
+          "tests/test_output_format.py",
+          "tests/test_plot_benchmark_execution_time.py",
+          "tests/test_research_suite.py",
+          "tests/test_validator.py",
+          "thesis/figures/comparison_pipeline.mmd",
+          "thesis/figures/evaluation_summary.mmd",
+          "thesis/figures/framework_architecture.mmd",
+          "thesis/final_thesis.md",
+          "thesis/references.bib"
+        ]
+      }
+    },
+    {
+      "stage": "selection",
+      "status": "completed",
+      "message": "Predictive selection completed",
+      "timestamp_utc": "2026-06-07T06:20:09.001331+00:00",
+      "details": {
+        "changed_files": [
+          ".github/workflows/pipeline.yml",
+          "README.md",
+          "__compare_methods_orig.py",
+          "__compare_methods_orig_utf8.py",
+          "__pycache__/main.cpython-312.pyc",
+          "__pycache__/target_code.cpython-312.pyc",
+          "main.py",
+          "reports/.coverage.agentic_1",
+          "reports/.coverage.agentic_2",
+          "reports/.coverage.agentic_3",
+          "reports/.coverage.traditional_1",
+          "reports/.coverage.traditional_2",
+          "reports/.coverage.traditional_3",
+          "reports/agentic_run_1.json",
+          "reports/agentic_run_2.json",
+          "reports/agentic_run_3.json",
+          "reports/agentic_run_local.json",
+          "reports/charts/coverage.png",
+          "reports/charts/defect_detection_rate.png",
+          "reports/charts/pass_rate.png",
+          "reports/charts/test_execution_time.png",
+          "reports/charts/validation_accuracy.png",
+          "reports/charts/weighted_score.png",
+          "reports/comparison_matrix.csv",
+          "reports/comparison_report.csv",
+          "reports/comparison_report.json",
+          "reports/comparison_report.md",
+          "reports/coverage_agentic_1.json",
+          "reports/coverage_agentic_2.json",
+          "reports/coverage_agentic_3.json",
+          "reports/coverage_breakdown_sample.csv",
+          "reports/coverage_traditional_1.json",
+          "reports/coverage_traditional_2.json",
+          "reports/coverage_traditional_3.json",
+          "reports/execution_time_source.csv",
+          "reports/healing_sample.csv",
+          "reports/project_status.csv",
+          "reports/project_status.md",
+          "reports/prototype_experiments/prototype_run_target_code_1.json",
+          "reports/prototype_experiments_summary.csv",
+          "reports/prototype_experiments_summary.json",
+          "reports/prototype_experiments_summary.md",
+          "reports/prototype_run_target_code.json",
+          "reports/report.json",
+          "reports/research_report.md",
+          "reports/results.csv",
+          "reports/summary.json",
+          "requirements.txt",
+          "scripts/README.md",
+          "scripts/__init__.py",
+          "scripts/__pycache__/__init__.cpython-312.pyc",
+          "scripts/__pycache__/compare_methods.cpython-312.pyc",
+          "scripts/__pycache__/llm_prototype_harness.cpython-312.pyc",
+          "scripts/__pycache__/plot_benchmark_execution_time.cpython-312.pyc",
+          "scripts/aggregate_reports.py",
+          "scripts/compare_methods.py",
+          "scripts/llm_prototype_harness.py",
+          "scripts/plot_benchmark_execution_time.py",
+          "scripts/run_prototype_experiments.py",
+          "scripts/run_research_experiment.py",
+          "scripts/validate_generated_tests.py",
+          "src/__init__.py",
+          "src/__pycache__/generator.cpython-312.pyc",
+          "src/__pycache__/research_experiment.cpython-312.pyc",
+          "src/__pycache__/runner.cpython-312.pyc",
+          "src/analyzer.py",
+          "src/generator.py",
+          "src/healer.py",
+          "src/output_format.py",
+          "src/pipeline_tracker.py",
+          "src/reporter.py",
+          "src/research_experiment.py",
+          "src/runner.py",
+          "src/test_select_agent.py",
+          "src/validator.py",
+          "target_code.py",
+          "tests/__pycache__/generated_tests.cpython-312-pytest-9.0.2.pyc",
+          "tests/__pycache__/test_generated.cpython-312-pytest-9.0.2.pyc",
+          "tests/__pycache__/test_generated.cpython-312-pytest-9.0.3.pyc",
+          "tests/__pycache__/test_main.cpython-312-pytest-9.0.2.pyc",
+          "tests/__pycache__/test_main.cpython-312-pytest-9.0.3.pyc",
+          "tests/__pycache__/test_plot_benchmark_execution_time.cpython-312-pytest-9.0.2.pyc",
+          "tests/__pycache__/test_plot_benchmark_execution_time.cpython-312-pytest-9.0.3.pyc",
+          "tests/__pycache__/test_research_suite.cpython-312-pytest-9.0.2.pyc",
+          "tests/__pycache__/test_research_suite.cpython-312-pytest-9.0.3.pyc",
+          "tests/experiments/__pycache__/generated_tests_target_code_run_1.cpython-312-pytest-9.0.2.pyc",
+          "tests/experiments/generated_tests_target_code_run_1.py",
+          "tests/generated_tests.py",
+          "tests/test_generated.py",
+          "tests/test_main.py",
+          "tests/test_output_format.py",
+          "tests/test_plot_benchmark_execution_time.py",
+          "tests/test_research_suite.py",
+          "tests/test_validator.py",
+          "thesis/figures/comparison_pipeline.mmd",
+          "thesis/figures/evaluation_summary.mmd",
+          "thesis/figures/framework_architecture.mmd",
+          "thesis/final_thesis.md",
+          "thesis/references.bib"
+        ],
+        "selected_tests": [
+          "tests/test_generated.py",
+          "tests/test_research_suite.py"
+        ]
+      }
+    },
+    {
+      "stage": "test_run",
+      "status": "running",
+      "message": "Executing selected tests",
+      "timestamp_utc": "2026-06-07T06:20:09.001347+00:00",
+      "details": {
+        "selected_tests": [
+          "tests/test_generated.py",
+          "tests/test_research_suite.py"
+        ]
+      }
+    },
+    {
+      "stage": "test_run",
+      "status": "completed",
+      "message": "Selected test run completed",
+      "timestamp_utc": "2026-06-07T06:20:17.538520+00:00",
+      "details": {
+        "passed": false,
+        "return_code": 1
+      }
+    },
+    {
+      "stage": "healing",
+      "status": "running",
+      "message": "Self-heal attempt started",
+      "timestamp_utc": "2026-06-07T06:20:17.538553+00:00",
+      "details": {
+        "attempt": 1
+      }
+    },
+    {
+      "stage": "healing",
+      "status": "completed",
+      "message": "Self-heal skipped to preserve defect-detection assertions",
+      "timestamp_utc": "2026-06-07T06:20:17.539853+00:00",
+      "details": {
+        "attempt": 1,
+        "passed": false,
+        "return_code": 1
+      }
+    },
+    {
+      "stage": "report",
+      "status": "running",
+      "message": "Writing report",
+      "timestamp_utc": "2026-06-07T06:20:17.539876+00:00"
+    },
+    {
+      "stage": "pipeline",
+      "status": "failed",
+      "message": "Pipeline finished: FAILED",
+      "timestamp_utc": "2026-06-07T06:20:17.539888+00:00",
+      "details": {
+        "original_test_passed": false,
+        "original_return_code": 1
+      }
+    }
+  ],
+  "predictive_selection": {
+    "enabled": true,
+    "base_ref": "HEAD~1",
+    "changed_files": [
+      ".github/workflows/pipeline.yml",
+      "README.md",
+      "__compare_methods_orig.py",
+      "__compare_methods_orig_utf8.py",
+      "__pycache__/main.cpython-312.pyc",
+      "__pycache__/target_code.cpython-312.pyc",
+      "main.py",
+      "reports/.coverage.agentic_1",
+      "reports/.coverage.agentic_2",
+      "reports/.coverage.agentic_3",
+      "reports/.coverage.traditional_1",
+      "reports/.coverage.traditional_2",
+      "reports/.coverage.traditional_3",
+      "reports/agentic_run_1.json",
+      "reports/agentic_run_2.json",
+      "reports/agentic_run_3.json",
+      "reports/agentic_run_local.json",
+      "reports/charts/coverage.png",
+      "reports/charts/defect_detection_rate.png",
+      "reports/charts/pass_rate.png",
+      "reports/charts/test_execution_time.png",
+      "reports/charts/validation_accuracy.png",
+      "reports/charts/weighted_score.png",
+      "reports/comparison_matrix.csv",
+      "reports/comparison_report.csv",
+      "reports/comparison_report.json",
+      "reports/comparison_report.md",
+      "reports/coverage_agentic_1.json",
+      "reports/coverage_agentic_2.json",
+      "reports/coverage_agentic_3.json",
+      "reports/coverage_breakdown_sample.csv",
+      "reports/coverage_traditional_1.json",
+      "reports/coverage_traditional_2.json",
+      "reports/coverage_traditional_3.json",
+      "reports/execution_time_source.csv",
+      "reports/healing_sample.csv",
+      "reports/project_status.csv",
+      "reports/project_status.md",
+      "reports/prototype_experiments/prototype_run_target_code_1.json",
+      "reports/prototype_experiments_summary.csv",
+      "reports/prototype_experiments_summary.json",
+      "reports/prototype_experiments_summary.md",
+      "reports/prototype_run_target_code.json",
+      "reports/report.json",
+      "reports/research_report.md",
+      "reports/results.csv",
+      "reports/summary.json",
+      "requirements.txt",
+      "scripts/README.md",
+      "scripts/__init__.py",
+      "scripts/__pycache__/__init__.cpython-312.pyc",
+      "scripts/__pycache__/compare_methods.cpython-312.pyc",
+      "scripts/__pycache__/llm_prototype_harness.cpython-312.pyc",
+      "scripts/__pycache__/plot_benchmark_execution_time.cpython-312.pyc",
+      "scripts/aggregate_reports.py",
+      "scripts/compare_methods.py",
+      "scripts/llm_prototype_harness.py",
+      "scripts/plot_benchmark_execution_time.py",
+      "scripts/run_prototype_experiments.py",
+      "scripts/run_research_experiment.py",
+      "scripts/validate_generated_tests.py",
+      "src/__init__.py",
+      "src/__pycache__/generator.cpython-312.pyc",
+      "src/__pycache__/research_experiment.cpython-312.pyc",
+      "src/__pycache__/runner.cpython-312.pyc",
+      "src/analyzer.py",
+      "src/generator.py",
+      "src/healer.py",
+      "src/output_format.py",
+      "src/pipeline_tracker.py",
+      "src/reporter.py",
+      "src/research_experiment.py",
+      "src/runner.py",
+      "src/test_select_agent.py",
+      "src/validator.py",
+      "target_code.py",
+      "tests/__pycache__/generated_tests.cpython-312-pytest-9.0.2.pyc",
+      "tests/__pycache__/test_generated.cpython-312-pytest-9.0.2.pyc",
+      "tests/__pycache__/test_generated.cpython-312-pytest-9.0.3.pyc",
+      "tests/__pycache__/test_main.cpython-312-pytest-9.0.2.pyc",
+      "tests/__pycache__/test_main.cpython-312-pytest-9.0.3.pyc",
+      "tests/__pycache__/test_plot_benchmark_execution_time.cpython-312-pytest-9.0.2.pyc",
+      "tests/__pycache__/test_plot_benchmark_execution_time.cpython-312-pytest-9.0.3.pyc",
+      "tests/__pycache__/test_research_suite.cpython-312-pytest-9.0.2.pyc",
+      "tests/__pycache__/test_research_suite.cpython-312-pytest-9.0.3.pyc",
+      "tests/experiments/__pycache__/generated_tests_target_code_run_1.cpython-312-pytest-9.0.2.pyc",
+      "tests/experiments/generated_tests_target_code_run_1.py",
+      "tests/generated_tests.py",
+      "tests/test_generated.py",
+      "tests/test_main.py",
+      "tests/test_output_format.py",
+      "tests/test_plot_benchmark_execution_time.py",
+      "tests/test_research_suite.py",
+      "tests/test_validator.py",
+      "thesis/figures/comparison_pipeline.mmd",
+      "thesis/figures/evaluation_summary.mmd",
+      "thesis/figures/framework_architecture.mmd",
+      "thesis/final_thesis.md",
+      "thesis/references.bib"
+    ],
+    "selected_tests": [
+      "tests/test_generated.py",
+      "tests/test_research_suite.py"
+    ]
+  },
+  "heal_history": [
+    {
+      "attempt": 1,
+      "test_output": "F..F..FF................................................................ [ 45%]\n..............................................FFFFFFFFFFFFFFFFFFFFFFFFFF [ 91%]\nFFFFFFFFFFFFFF                                                           [100%]\n=================================== FAILURES ===================================\n___________________ test_add_returns_the_sum_of_two_numbers ____________________\n\n    def test_add_returns_the_sum_of_two_numbers():\n>       assert add(1, 2) == 3\nE       assert -1 == 3\nE        +  where -1 = add(1, 2)\n\ntests/test_generated.py:5: AssertionError\n__________ test_divide_returns_the_quotient_and_handles_zero_division __________\n\n    def test_divide_returns_the_quotient_and_handles_zero_division():\n        assert divide(8, 2) == 4\n        assert divide(9, 3) == 3\n>       assert divide(5, 0) == \"Error: Cannot divide by zero!\"\n               ^^^^^^^^^^^^\n\ntests/test_generated.py:19: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nx = 5, y = 0\n\n    def divide(x, y):\n        # Handle division by zero to prevent crashes\n        if y == 0:\n>           return x / y\n                   ^^^^^\nE           ZeroDivisionError: division by zero\n\ntarget_code.py:17: ZeroDivisionError\n___________________ test_get_user_age_returns_a_numeric_age ____________________\n\n    def test_get_user_age_returns_a_numeric_age():\n        result = get_user_age()\n>       assert isinstance(result, int)\nE       AssertionError: assert False\nE        +  where False = isinstance('twenty-five', int)\n\ntests/test_generated.py:29: AssertionError\n_______________ test_get_first_item_returns_the_first_list_item ________________\n\n    def test_get_first_item_returns_the_first_list_item():\n>       assert get_first_item([10, 20, 30]) == 10\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_generated.py:33: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nmy_list = [10, 20, 30]\n\n    def get_first_item(my_list):\n        # Index 10 doesn't exist in a small list! This will crash.\n>       return my_list[10]\n               ^^^^^^^^^^^\nE       IndexError: list index out of range\n\ntarget_code.py:76: IndexError\n________________________________ test_fail_001 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 4\nE        +  where -2 = <function add at 0x7eceac806980>(1, 3)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_002 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 6\nE        +  where -2 = <function add at 0x7eceac806980>(2, 4)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_003 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 8\nE        +  where -2 = <function add at 0x7eceac806980>(3, 5)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_004 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 10\nE        +  where -2 = <function add at 0x7eceac806980>(4, 6)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_005 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 12\nE        +  where -2 = <function add at 0x7eceac806980>(5, 7)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_006 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 14\nE        +  where -2 = <function add at 0x7eceac806980>(6, 8)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_007 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 16\nE        +  where -2 = <function add at 0x7eceac806980>(7, 9)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_008 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 18\nE        +  where -2 = <function add at 0x7eceac806980>(8, 10)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_009 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 20\nE        +  where -2 = <function add at 0x7eceac806980>(9, 11)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_010 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 22\nE        +  where -2 = <function add at 0x7eceac806980>(10, 12)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_011 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 24\nE        +  where -2 = <function add at 0x7eceac806980>(11, 13)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_012 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 26\nE        +  where -2 = <function add at 0x7eceac806980>(12, 14)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_013 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 28\nE        +  where -2 = <function add at 0x7eceac806980>(13, 15)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_014 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 30\nE        +  where -2 = <function add at 0x7eceac806980>(14, 16)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_015 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 32\nE        +  where -2 = <function add at 0x7eceac806980>(15, 17)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_016 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 34\nE        +  where -2 = <function add at 0x7eceac806980>(16, 18)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_017 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 36\nE        +  where -2 = <function add at 0x7eceac806980>(17, 19)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_018 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 38\nE        +  where -2 = <function add at 0x7eceac806980>(18, 20)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_019 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 40\nE        +  where -2 = <function add at 0x7eceac806980>(19, 21)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_020 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 42\nE        +  where -2 = <function add at 0x7eceac806980>(20, 22)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_021 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 44\nE        +  where -2 = <function add at 0x7eceac806980>(21, 23)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_022 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 46\nE        +  where -2 = <function add at 0x7eceac806980>(22, 24)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_023 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 48\nE        +  where -2 = <function add at 0x7eceac806980>(23, 25)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_024 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 50\nE        +  where -2 = <function add at 0x7eceac806980>(24, 26)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_025 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\nE       assert -2 == 52\nE        +  where -2 = <function add at 0x7eceac806980>(25, 27)\n\ntests/test_research_suite.py:61: AssertionError\n________________________________ test_fail_026 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n>           assert isinstance(tc.get_user_age(), int)\nE           AssertionError: assert False\nE            +  where False = isinstance('twenty-five', int)\nE            +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\nE            +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\n\ntests/test_research_suite.py:53: AssertionError\n________________________________ test_fail_027 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n>           assert isinstance(tc.get_user_age(), int)\nE           AssertionError: assert False\nE            +  where False = isinstance('twenty-five', int)\nE            +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\nE            +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\n\ntests/test_research_suite.py:53: AssertionError\n________________________________ test_fail_028 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n>           assert isinstance(tc.get_user_age(), int)\nE           AssertionError: assert False\nE            +  where False = isinstance('twenty-five', int)\nE            +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\nE            +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\n\ntests/test_research_suite.py:53: AssertionError\n________________________________ test_fail_029 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n>           assert isinstance(tc.get_user_age(), int)\nE           AssertionError: assert False\nE            +  where False = isinstance('twenty-five', int)\nE            +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\nE            +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\n\ntests/test_research_suite.py:53: AssertionError\n________________________________ test_fail_030 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n>           assert isinstance(tc.get_user_age(), int)\nE           AssertionError: assert False\nE            +  where False = isinstance('twenty-five', int)\nE            +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\nE            +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\n\ntests/test_research_suite.py:53: AssertionError\n________________________________ test_fail_031 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n>           assert tc.get_first_item(left) == expected\n                   ^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:57: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nmy_list = [1, 2, 3]\n\n    def get_first_item(my_list):\n        # Index 10 doesn't exist in a small list! This will crash.\n>       return my_list[10]\n               ^^^^^^^^^^^\nE       IndexError: list index out of range\n\ntarget_code.py:76: IndexError\n________________________________ test_fail_032 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n>           assert tc.get_first_item(left) == expected\n                   ^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:57: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nmy_list = [2, 3, 4]\n\n    def get_first_item(my_list):\n        # Index 10 doesn't exist in a small list! This will crash.\n>       return my_list[10]\n               ^^^^^^^^^^^\nE       IndexError: list index out of range\n\ntarget_code.py:76: IndexError\n________________________________ test_fail_033 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n>           assert tc.get_first_item(left) == expected\n                   ^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:57: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nmy_list = [3, 4, 5]\n\n    def get_first_item(my_list):\n        # Index 10 doesn't exist in a small list! This will crash.\n>       return my_list[10]\n               ^^^^^^^^^^^\nE       IndexError: list index out of range\n\ntarget_code.py:76: IndexError\n________________________________ test_fail_034 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n>           assert tc.get_first_item(left) == expected\n                   ^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:57: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nmy_list = [4, 5, 6]\n\n    def get_first_item(my_list):\n        # Index 10 doesn't exist in a small list! This will crash.\n>       return my_list[10]\n               ^^^^^^^^^^^\nE       IndexError: list index out of range\n\ntarget_code.py:76: IndexError\n________________________________ test_fail_035 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n>           assert tc.get_first_item(left) == expected\n                   ^^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:57: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nmy_list = [5, 6, 7]\n\n    def get_first_item(my_list):\n        # Index 10 doesn't exist in a small list! This will crash.\n>       return my_list[10]\n               ^^^^^^^^^^^\nE       IndexError: list index out of range\n\ntarget_code.py:76: IndexError\n________________________________ test_fail_036 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\n               ^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:61: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nx = 5, y = 0\n\n    def divide(x, y):\n        # Handle division by zero to prevent crashes\n        if y == 0:\n>           return x / y\n                   ^^^^^\nE           ZeroDivisionError: division by zero\n\ntarget_code.py:17: ZeroDivisionError\n________________________________ test_fail_037 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\n               ^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:61: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nx = 5, y = 0\n\n    def divide(x, y):\n        # Handle division by zero to prevent crashes\n        if y == 0:\n>           return x / y\n                   ^^^^^\nE           ZeroDivisionError: division by zero\n\ntarget_code.py:17: ZeroDivisionError\n________________________________ test_fail_038 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\n               ^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:61: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nx = 5, y = 0\n\n    def divide(x, y):\n        # Handle division by zero to prevent crashes\n        if y == 0:\n>           return x / y\n                   ^^^^^\nE           ZeroDivisionError: division by zero\n\ntarget_code.py:17: ZeroDivisionError\n________________________________ test_fail_039 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\n               ^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:61: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nx = 5, y = 0\n\n    def divide(x, y):\n        # Handle division by zero to prevent crashes\n        if y == 0:\n>           return x / y\n                   ^^^^^\nE           ZeroDivisionError: division by zero\n\ntarget_code.py:17: ZeroDivisionError\n________________________________ test_fail_040 _________________________________\n\n    def test_case() -> None:\n        if op_name == \"get_user_age\":\n            assert isinstance(tc.get_user_age(), int)\n            return\n    \n        if op_name == \"get_first_item\":\n            assert tc.get_first_item(left) == expected\n            return\n    \n        operation = getattr(tc, op_name)\n>       assert operation(left, right) == expected\n               ^^^^^^^^^^^^^^^^^^^^^^\n\ntests/test_research_suite.py:61: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nx = 5, y = 0\n\n    def divide(x, y):\n        # Handle division by zero to prevent crashes\n        if y == 0:\n>           return x / y\n                   ^^^^^\nE           ZeroDivisionError: division by zero\n\ntarget_code.py:17: ZeroDivisionError\n=========================== short test summary info ============================\nFAILED tests/test_generated.py::test_add_returns_the_sum_of_two_numbers - assert -1 == 3\n +  where -1 = add(1, 2)\nFAILED tests/test_generated.py::test_divide_returns_the_quotient_and_handles_zero_division - ZeroDivisionError: division by zero\nFAILED tests/test_generated.py::test_get_user_age_returns_a_numeric_age - AssertionError: assert False\n +  where False = isinstance('twenty-five', int)\nFAILED tests/test_generated.py::test_get_first_item_returns_the_first_list_item - IndexError: list index out of range\nFAILED tests/test_research_suite.py::test_fail_001 - assert -2 == 4\n +  where -2 = <function add at 0x7eceac806980>(1, 3)\nFAILED tests/test_research_suite.py::test_fail_002 - assert -2 == 6\n +  where -2 = <function add at 0x7eceac806980>(2, 4)\nFAILED tests/test_research_suite.py::test_fail_003 - assert -2 == 8\n +  where -2 = <function add at 0x7eceac806980>(3, 5)\nFAILED tests/test_research_suite.py::test_fail_004 - assert -2 == 10\n +  where -2 = <function add at 0x7eceac806980>(4, 6)\nFAILED tests/test_research_suite.py::test_fail_005 - assert -2 == 12\n +  where -2 = <function add at 0x7eceac806980>(5, 7)\nFAILED tests/test_research_suite.py::test_fail_006 - assert -2 == 14\n +  where -2 = <function add at 0x7eceac806980>(6, 8)\nFAILED tests/test_research_suite.py::test_fail_007 - assert -2 == 16\n +  where -2 = <function add at 0x7eceac806980>(7, 9)\nFAILED tests/test_research_suite.py::test_fail_008 - assert -2 == 18\n +  where -2 = <function add at 0x7eceac806980>(8, 10)\nFAILED tests/test_research_suite.py::test_fail_009 - assert -2 == 20\n +  where -2 = <function add at 0x7eceac806980>(9, 11)\nFAILED tests/test_research_suite.py::test_fail_010 - assert -2 == 22\n +  where -2 = <function add at 0x7eceac806980>(10, 12)\nFAILED tests/test_research_suite.py::test_fail_011 - assert -2 == 24\n +  where -2 = <function add at 0x7eceac806980>(11, 13)\nFAILED tests/test_research_suite.py::test_fail_012 - assert -2 == 26\n +  where -2 = <function add at 0x7eceac806980>(12, 14)\nFAILED tests/test_research_suite.py::test_fail_013 - assert -2 == 28\n +  where -2 = <function add at 0x7eceac806980>(13, 15)\nFAILED tests/test_research_suite.py::test_fail_014 - assert -2 == 30\n +  where -2 = <function add at 0x7eceac806980>(14, 16)\nFAILED tests/test_research_suite.py::test_fail_015 - assert -2 == 32\n +  where -2 = <function add at 0x7eceac806980>(15, 17)\nFAILED tests/test_research_suite.py::test_fail_016 - assert -2 == 34\n +  where -2 = <function add at 0x7eceac806980>(16, 18)\nFAILED tests/test_research_suite.py::test_fail_017 - assert -2 == 36\n +  where -2 = <function add at 0x7eceac806980>(17, 19)\nFAILED tests/test_research_suite.py::test_fail_018 - assert -2 == 38\n +  where -2 = <function add at 0x7eceac806980>(18, 20)\nFAILED tests/test_research_suite.py::test_fail_019 - assert -2 == 40\n +  where -2 = <function add at 0x7eceac806980>(19, 21)\nFAILED tests/test_research_suite.py::test_fail_020 - assert -2 == 42\n +  where -2 = <function add at 0x7eceac806980>(20, 22)\nFAILED tests/test_research_suite.py::test_fail_021 - assert -2 == 44\n +  where -2 = <function add at 0x7eceac806980>(21, 23)\nFAILED tests/test_research_suite.py::test_fail_022 - assert -2 == 46\n +  where -2 = <function add at 0x7eceac806980>(22, 24)\nFAILED tests/test_research_suite.py::test_fail_023 - assert -2 == 48\n +  where -2 = <function add at 0x7eceac806980>(23, 25)\nFAILED tests/test_research_suite.py::test_fail_024 - assert -2 == 50\n +  where -2 = <function add at 0x7eceac806980>(24, 26)\nFAILED tests/test_research_suite.py::test_fail_025 - assert -2 == 52\n +  where -2 = <function add at 0x7eceac806980>(25, 27)\nFAILED tests/test_research_suite.py::test_fail_026 - AssertionError: assert False\n +  where False = isinstance('twenty-five', int)\n +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\n +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\nFAILED tests/test_research_suite.py::test_fail_027 - AssertionError: assert False\n +  where False = isinstance('twenty-five', int)\n +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\n +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\nFAILED tests/test_research_suite.py::test_fail_028 - AssertionError: assert False\n +  where False = isinstance('twenty-five', int)\n +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\n +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\nFAILED tests/test_research_suite.py::test_fail_029 - AssertionError: assert False\n +  where False = isinstance('twenty-five', int)\n +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\n +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\nFAILED tests/test_research_suite.py::test_fail_030 - AssertionError: assert False\n +  where False = isinstance('twenty-five', int)\n +    where 'twenty-five' = <function get_user_age at 0x7eceac8065c0>()\n +      where <function get_user_age at 0x7eceac8065c0> = tc.get_user_age\nFAILED tests/test_research_suite.py::test_fail_031 - IndexError: list index out of range\nFAILED tests/test_research_suite.py::test_fail_032 - IndexError: list index out of range\nFAILED tests/test_research_suite.py::test_fail_033 - IndexError: list index out of range\nFAILED tests/test_research_suite.py::test_fail_034 - IndexError: list index out of range\nFAILED tests/test_research_suite.py::test_fail_035 - IndexError: list index out of range\nFAILED tests/test_research_suite.py::test_fail_036 - ZeroDivisionError: division by zero\nFAILED tests/test_research_suite.py::test_fail_037 - ZeroDivisionError: division by zero\nFAILED tests/test_research_suite.py::test_fail_038 - ZeroDivisionError: division by zero\nFAILED tests/test_research_suite.py::test_fail_039 - ZeroDivisionError: division by zero\nFAILED tests/test_research_suite.py::test_fail_040 - ZeroDivisionError: division by zero\n44 failed, 114 passed in 1.33s",
+      "result": "no_safe_change",
+      "explanation": [
+        "No deterministic structural repair was safe to apply.",
+        "Assertions were preserved to avoid masking application defects."
+      ]
+    }
+  ],
+  "generation_explanation": [
+    "No deterministic structural repair was safe to apply.",
+    "Assertions were preserved to avoid masking application defects."
+  ],
+  "metrics": {
+    "functions": 9,
+    "classes": 0,
+    "passed": false,
+    "test_counts": {
+      "passed": 114,
+      "failed": 44,
+      "errors": 0,
+      "skipped": 0,
+      "xfailed": 0,
+      "xpassed": 0,
+      "total": 158
+    },
+    "defects_detected": 44,
+    "test_execution_time_seconds": 8.537,
+    "execution_efficiency_tests_per_second": 18.508,
+    "selected_tests_count": 2,
+    "durations_seconds": {
+      "analysis": 0.003,
+      "generation": 0.006,
+      "validation": 0.003,
+      "test_run": 8.537,
+      "selection": 0.0,
+      "healing": 0.001
+    },
+    "pipeline_total_seconds": 16.876
+  },
+  "pipeline_duration_seconds": 16.882,
+  "pipeline_start_utc": "2026-06-07T06:20:00.663523+00:00",
+  "pipeline_end_utc": "2026-06-07T06:20:17.545951+00:00"
+}
