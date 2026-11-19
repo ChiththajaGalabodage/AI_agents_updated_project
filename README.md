@@ -1,126 +1,87 @@
-# AI Test Generator
+<div align="center">
 
-A modular agentic testing framework for CI/CD that combines three autonomous agents:
+# Agentic AI Test Generator — Research Prototype
+**Gemini-backed generation · Predictive selection · Constrained healing · CI comparison**
 
-- Test generation agent (LLM + deterministic fallback)
-- Predictive test selection agent (change-impact based)
-- Self-healing agent (repairs failing generated tests)
+![Python](https://img.shields.io/badge/Python-Automation-3776AB?logo=python&logoColor=white)
+![Gemini](https://img.shields.io/badge/LLM-Gemini%20optional-4285F4)
+![pytest](https://img.shields.io/badge/Tests-pytest-0A9EDC?logo=pytest&logoColor=white)
+![Status](https://img.shields.io/badge/Research-Earlier%20prototype-orange)
 
-The framework can be executed standalone (`main.py`) or benchmarked against a traditional pipeline (`scripts/compare_methods.py`).
+[Source](https://github.com/ChiththajaGalabodage/AI_agents_updated_project) · [Update notes](UPDATE_SUMMARY.md) · [Comparison artifacts](reports/)
 
-## Phase-Based Workflow
+</div>
 
-### 1) Design Agentic Framework
+## About
 
-The framework is split into isolated modules so each capability can evolve independently:
+This repository captures an **earlier prototype** developed while investigating the application of large language models to continuous testing. It contains modular source analysis, pytest test generation, change-based selection, limited self-healing, structured reporting, and agentic-versus-traditional comparisons.
 
-- `src/analyzer.py`: Extracts code structure via AST
-- `src/generator.py`: Generates tests with Gemini or deterministic fallback
-- `src/test_select_agent.py`: Selects impacted tests from code changes
-- `src/healer.py`: Repairs failing generated tests
-- `src/runner.py`: Executes selected tests
-- `src/reporter.py`: Writes structured run reports
-- `src/pipeline_tracker.py`: Tracks stage-by-stage lifecycle events
+It is **not the same implementation or experimental snapshot** as the revised thesis's final FastAPI LLM-CTF. Refer to [`Fast-API-Project-main`](https://github.com/ChiththajaGalabodage/Fast-API-Project-main) for that case-study code.
 
-This modular design makes the pipeline easy to plug into CI/CD systems and easy to extend with additional agents.
+## Implemented workflow
 
-### 2) Deploy Into CI/CD
+```mermaid
+flowchart LR
+  A[Python source] --> B[AST analyzer]
+  B --> C[Gemini / local fallback test generation]
+  C --> D[Change-aware selection]
+  D --> E[pytest execution]
+  E --> F[Constrained healing attempts]
+  F --> G[JSON / CSV / Markdown reports]
+```
 
-Deployment options:
+| Module | Purpose |
+|---|---|
+| `src/analyzer.py` | Extract source structure |
+| `src/generator.py` | Generate tests with Gemini or deterministic fallback |
+| `src/test_select_agent.py` | Identify impacted tests |
+| `src/healer.py` | Handle limited failures in generated tests |
+| `src/runner.py` | Execute selected tests |
+| `src/reporter.py` | Write structured results |
+| `scripts/compare_methods.py` | Run traditional-versus-agentic experiments |
+| `.github/workflows/pipeline.yml` | Execute CI workflow and upload artifacts |
 
-- Single agentic run: `python main.py --source target_code.py --max-heal-attempts 2 --predictive-test-selection`
-- Experiment mode (agentic vs traditional): `python scripts/compare_methods.py --source target_code.py --runs 3`
-
-The workflow in `.github/workflows/pipeline.yml` runs both modes and uploads artifacts.
-
-### 3) Compare with Traditional Methods
-
-Comparison script:
-
-- Runs agentic pipeline for `N` iterations
-- Runs traditional pytest baseline for `N` iterations
-- Captures metrics per run:
-  - Execution time
-  - Test counts (passed/failed/total)
-  - Defects detected (failed + errors)
-  - Coverage percentage (line coverage)
-  - Selected-test footprint
-
-Outputs:
-
-- `reports/comparison_report.json`
-- `reports/comparison_report.csv`
-- `reports/comparison_report.md`
-
-### 4) Analyze Results
-
-Use the generated reports for quantitative and qualitative analysis:
-
-- Quantitative: pass rate, average duration, average coverage, defect detection
-- Qualitative: healing behavior, selected test subset size, and per-run execution details
-
-The summary includes a direct delta section (`Agentic - Traditional`) to evaluate effectiveness, efficiency, and reliability.
-
-## Setup
+## Installation
 
 ```bash
+git clone https://github.com/ChiththajaGalabodage/AI_agents_updated_project.git
+cd AI_agents_updated_project
 python -m venv .venv
-.venv\Scripts\activate
+# Windows: .venv\Scripts\Activate.ps1
+# macOS / Linux: source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Optional (for LLM-backed generation):
+For live Gemini calls, set `GEMINI_API_KEY` locally or in the Actions repository secrets. Without the key, behavior may use a deterministic fallback: **never label fallback output as live LLM results**.
+
+## Run
 
 ```bash
-set GEMINI_API_KEY=your_api_key_here
-```
-
-If no key is set, generation and healing still execute with deterministic local fallback behavior.
-
-## Usage
-
-### Agentic Pipeline
-
-```bash
+# Main agentic pipeline
 python main.py --source target_code.py --max-heal-attempts 2 --predictive-test-selection
-```
 
-### Continuous Regeneration (Watch Mode)
-
-```bash
-python main.py --source target_code.py --watch
-```
-
-This mode runs the pipeline once, then re-runs automatically whenever the source file changes.
-
-Useful flags:
-
-- `--test-output tests/test_generated.py`
-- `--report-output reports/report.json`
-- `--model gemini-2.5-flash`
-- `--base-ref HEAD~1`
-- `--watch`
-- `--watch-interval 1.0`
-
-### Agentic vs Traditional Benchmark
-
-```bash
+# Repeat the agentic versus traditional comparison
 python scripts/compare_methods.py --source target_code.py --runs 3
+
+# Validate the generated suite
+python scripts/validate_generated_tests.py
 ```
 
-Useful flags:
+Optional watch mode is implemented in the original project: `python main.py --source target_code.py --watch`.
 
-- `--report-output reports/comparison_report.json`
-- `--max-heal-attempts 2`
-- `--base-ref HEAD~1`
-- `--model gemini-2.5-flash`
+## Result artifacts and appropriate claims
 
-## CI
+Check `reports/comparison_report.json`, `reports/comparison_report.csv`, `reports/comparison_report.md` and the project-specific `reports/` directory for per-run outputs. [`UPDATE_SUMMARY.md`](UPDATE_SUMMARY.md) documents a particular earlier experiment, including a framework regression check and changes to defect-preservation behavior.
 
-GitHub Actions workflow outputs:
+**Important measurement caveat:** Some older comparison reports use a *failed-tests proxy* called `defects_detected`. That is **not** a validated count of unique product defects. Treat those counts as run-level failure indicators unless independently mapped to distinct confirmed faults. Likewise, a pass rate or lower test count alone does not establish superiority.
 
-- `tests/test_generated.py`
-- `reports/report.json`
-- `reports/comparison_report.json`
-- `reports/comparison_report.csv`
-- `reports/comparison_report.md`
+## Scope and limitations
+
+- Experimental modules and reports reflect an evolving research prototype.
+- An offline/deterministic fallback is not evidence of LLM accuracy.
+- Self-healing is limited and must not hide valid failures in the target product.
+- The revised thesis's **78 vs 16** result, **24 controlled replays**, **12 mutants** and **109-test final gate** belong to a different recorded study; do not attribute those measurements to this repo.
+
+**Research context:** *Enhancing Continuous Testing in DevOps and CI/CD Pipelines Using Large Language Models*.
+
+**Author:** [Chiththaja Galabodage](https://github.com/ChiththajaGalabodage)
